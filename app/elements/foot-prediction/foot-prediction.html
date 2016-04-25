@@ -1,0 +1,196 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+
+
+<dom-module id="foot-prediction">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+
+      span,
+      input {
+        @apply(--paper-font-body2);
+      }
+
+       #line {
+    @apply(--layout-horizontal);
+    margin-left: 1%;
+    margin-top: 1%;
+  }
+  #add {
+    position: absolute;
+    left: 75%;
+    top: 75%;
+     --paper-fab-keyboard-focus-background: green;
+  }
+  #do {
+    position: absolute;
+    left: 70%;
+    top: 75%;
+     --paper-fab-keyboard-focus-background: green;
+  }
+  #delB {
+    position: absolute;
+    left: 75%;
+    top: 40%;
+     --paper-fab-keyboard-focus-background: red;
+  }
+  paper-fab {
+      --paper-fab-background: indigo;
+      --paper-fab-disabled-text: indigo;
+      margin: 3px;
+      opacity: 0.7;
+    }
+    paper-material {
+    border-radius: 2px;
+    height: 100%;
+    padding: 16px 0 16px 0;
+    width: calc(98.66% - 16px);
+    
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background: white;
+  }
+  paper-input {
+        --paper-input-container-focus-color: #ffffff;
+        --paper-input-container-invalid-color: green;
+        --paper-input-container-input-color: black;
+    }
+   paper-dropdown-menu {
+      --paper-input-container-focus-color: #ffffff;
+      --paper-input-container-invalid-color: green;
+      --paper-input-container-input-color: black;
+    }
+
+    </style>
+
+    
+
+    <!--Loading teams data-->
+    <!--<iron-ajax auto url="teams.json" handle-as="json" on-response="dataLoaded"></iron-ajax>-->
+
+   <!--<paper-dropdown-menu label="Team1">
+          <paper-listbox class="dropdown-content" id="list" attr-for-selected="value">
+            <template is="dom-repeat" items="[[teams]]" as="team">
+                  <paper-item value$="[[team]]">{{team}}</paper-item>
+              </template>
+          </paper-listbox>
+        </paper-dropdown-menu>-->
+    <!--<template is="dom-repeat" count="[[10]]">-->
+
+
+
+
+
+
+   <paper-material style="width: 115%; margin-top: -5%; margin-bottom: 1px; margin-left: -8%;" elevation="1">
+                <br />
+                <h2 style="font-weight: 300; color: grey; position: relative; left: 10%; top: 0%;">Football Prediction</h2>
+                <p style="width: 75%;font-weight: 300; position: relative; left: 10%;"><em>FootBall Prediction</em> est un outil qui offre le service de présenter les 100 meilleures prévisions du point de vu des côtes saisies (de la combinaison avec la côte la plus basse à la 100iemme dans le classement). T1 est la côte pour la première équipe, T2 pour la seconde et N pour matche nul.<br />
+
+                Cet outil expose ainsi les 100 meilleures combinaisants d'une grille selon le site de paries sprotif choisi.<br />
+                (Une IA en machine learning est en cours de mise en place, qui affine ce classement en analysant les variations des résultats réels par rapport à ce dernier.)
+
+                </p>
+                <div id="line" style="margin-left: 6%;">
+                <paper-fab id="do" icon="done" on-tap="check" mini="true"></paper-fab>
+                <paper-fab id="add" icon="add" on-tap="addLine" mini="true"></paper-fab>
+                <paper-dropdown-menu label="Team1" style="width: 130px; padding: 0 16px 16px 8%; text-align: center;
+">
+                  <paper-listbox class="dropdown-content">
+                    <template is="dom-repeat" items="[[teams]]" as="team">
+                      <paper-item value$="{{team}}">{{team}}</paper-item>
+                    </template>
+                  </paper-listbox>
+                </paper-dropdown-menu>
+
+                <paper-dropdown-menu label="Team2" style="width: 130px; padding: 0 16px 16px 0; text-align: center;
+">
+                  <paper-listbox class="dropdown-content">
+                    <template is="dom-repeat" items="[[teams]]" as="team">
+                      <paper-item value$="{{team}}">{{team}}</paper-item>
+                    </template>
+                  </paper-listbox>
+                </paper-dropdown-menu>
+                
+                <paper-input label="T1" style="width: 40px; position: relative; top: 10%; padding: 0 16px 16px 0; text-align: center;" auto-validate allowed-pattern="[0-9.]"></paper-input>
+                <paper-input label="N" style="width: 40px; padding: 0 16px 16px 0; text-align: center;" auto-validate allowed-pattern="[0-9.]"></paper-input>
+                <paper-input label="T2" style="width: 40px; padding: 0 16px 16px 0; text-align: center;" auto-validate allowed-pattern="[0-9.]"></paper-input>
+              
+                </div>
+              </paper-material>
+            
+
+              <template is="dom-repeat" items="[[counts]]" as="count">
+              <paper-material style="width: 115%; margin-top: -0.8%; margin-bottom: 1px; margin-left: -8%;" elevation="1">
+                <div id="line" style="margin-left: 6%;">
+                  <paper-fab id="delB" icon="clear" title="Delete" on-tap="deleteTapped" mini="true"></paper-fab>
+                <paper-dropdown-menu label="Team1" style="width: 130px; padding: 0 16px 16px 8%; text-align: center;
+">
+                  <paper-listbox class="dropdown-content">
+                    <template is="dom-repeat" items="[[teams]]" as="team">
+                      <paper-item value$="{{team}}">{{team}}</paper-item>
+                    </template>
+                  </paper-listbox>
+                </paper-dropdown-menu>
+
+                <paper-dropdown-menu label="Team2" style="width: 130px; padding: 0 16px 16px 0; text-align: center;
+">
+                  <paper-listbox class="dropdown-content">
+                    <template is="dom-repeat" items="[[teams]]" as="team">
+                      <paper-item value$="{{team}}">{{team}}</paper-item>
+                    </template>
+                  </paper-listbox>
+                </paper-dropdown-menu>
+                
+                <paper-input label="T1" style="width: 40px; position: relative; top: 10%; padding: 0 16px 16px 0; text-align: center;" auto-validate allowed-pattern="[0-9.]"></paper-input>
+                <paper-input label="N" style="width: 40px; padding: 0 16px 16px 0; text-align: center;" auto-validate allowed-pattern="[0-9.]"></paper-input>
+                <paper-input label="T2" style="width: 40px; padding: 0 16px 16px 0; text-align: center;" auto-validate allowed-pattern="[0-9.]"></paper-input>
+              
+                </div>
+              </paper-material>
+            </template>
+
+       
+
+
+  </template>
+
+  <script>
+      Polymer({
+        is: 'foot-prediction',
+        ready: function() {
+          this.teams = ['Angers', 'Bastia', 'Caen', 'GFC Ajaccio', 'Guingamp', 'Lorient', 'Lyon', 'Montpellier', 'Paris SG', 'Saint-Étienne','Toulouse', 'Troyes'];
+          this.counts = [];
+        },
+        addLine: function() {
+          this.push('counts', '0');
+          console.log('Debug :' + this.counts[this.counts.length - 1]);
+        },
+        deleteTapped: function(e) {
+          var model = e.model;
+         var i = model.index;
+        this.splice('counts', find(this.counts[i]), 1);
+        console.log('Delete ' + i);
+        }
+        
+
+        
+    });
+  </script>
+</dom-module>
