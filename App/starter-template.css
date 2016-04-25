@@ -1,0 +1,203 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+.starter-template {
+  padding: 100px 15%;
+  text-align: center;
+  color : white;
+  z-index: 2;
+}
+.b1 { 
+  margin:0;
+  padding:0;
+  background: url(image/bp.jpg) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  opacity: 1;
+}
+
+.b2 { 
+  margin:0;
+  padding:0;
+  background: url(image/bb.png) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  opacity: 1;
+}
+.b3 { 
+  margin:0;
+  padding:0;
+  background: url(image/sgbd.png) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  opacity: 1;
+}
+.b4 { 
+  margin:0;
+  padding:0;
+  background: url(image/cube.gif) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  opacity: 1;
+}
+.b5 { 
+  margin:0;
+  padding:0;
+  background: url(image/go.png) no-repeat center fixed; 
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  opacity: 1;
+}
+/*.bar {
+  opacity: 0.9;
+  z-index: 5;
+}*/
+#about {
+  background-color: white;
+  width: 100%;
+  /*text-align: center;*/
+}
+a:hover
+    {
+        color: #0C8CCB;
+        border-bottom: 1px solid #0C8CCB;
+
+    }
+a:active
+         {
+       color: rgba(255, 255, 255, 1);
+       background-color: #0C8CCB; 
+         }
+h2 {
+  text-align: center;
+  font-size: 1.8em;
+}
+h3 {
+  text-align: center;
+}
+h5 {
+  text-align: center;
+}
+p {
+  position: relative;
+  z-index: 1;
+}
+.logoEcole {
+  float: right;
+}
+.hide {
+  color: black;
+  opacity: 0.9;
+}
+.inline-form input {
+  display: inline-block;
+  width: 100px;
+}
+#R {
+  color: #0C8CCB;
+  opacity: 0.8;
+}
+#R:hover {
+  color: #0C8CCB;
+  opacity: 1;
+}
+#en_bas {
+  opacity: 0.6;
+}
+#en_bas:hover {
+  opacity: 1;
+  text-align: center;
+}
+*
+{
+    font-family: "Trebuchet MS", "Arial Black", sans-serif;
+}
+.designed {
+  overflow: hidden;
+  color: #002F2F;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+   min-height: 50px;
+  border: 1px solid transparent;
+  padding: 3px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+  .sec {
+  /*width: 60%;*/
+  text-align: justify;
+  padding: 10px 100px;
+  z-index: 2;
+ /*text-align: center;*/
+}
+.sec_bis {
+  /*width: 60%;*/
+  text-align: center;
+  /*padding: 20px 220px;*/
+  font-size: 0.8em;
+  opacity: 0.8;
+ /*text-align: center;*/
+}
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+  .sec {
+  /*width: 60%;*/
+  text-align: justify;
+  padding: 20px 220px;
+  z-index: 2;
+ /*text-align: center;*/
+}
+.sec_bis {
+  /*width: 60%;*/
+  text-align: center;
+  /*padding: 20px 220px;*/
+  font-size: 1.4em;
+  opacity: 0.8;
+ /*text-align: center;*/
+}
+.cv:hover {
+width:235px;
+}
+.logo:hover {
+  width:50px;
+}
+.pres:hover {
+  width: 290px;
+}
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+  .sec {
+  /*width: 60%;*/
+  text-align: justify;
+  padding: 20px 220px;
+  z-index: 2;
+ /*text-align: center;*/
+}
+.sec_bis {
+  /*width: 60%;*/
+  text-align: center;
+  /*padding: 20px 220px;*/
+  font-size: 1.4em;
+  opacity: 0.8;
+ /*text-align: center;*/
+}
+.cv:hover {
+width:235px;
+}
+.logo:hover {
+  width:50px;
+}
+.pres:hover {
+  width: 290px;
+}
+}
+
