@@ -85,4 +85,9 @@ gulp serve
 
 This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
 
+###Useful links
+
+- A demonstration of the client side : https://www.youtube.com/watch?v=g4eWmH3QEk4&feature=youtu.be
+
+
 
